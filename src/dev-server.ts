@@ -25,10 +25,12 @@ async function main() {
     await seedSuperAdmin();
 
     const port =
-      typeof config.port === 'number' ? config.port : Number(config.port);
+      typeof config.port_dev === 'number' ? config.port_dev : Number(config.port_dev);
 
     server = app.listen(port, config.ip_address as string, () => {
-      logger.info(colors.yellow(`♻️  Application listening on port:${port}`));
+      logger.info(
+        colors.yellow(`♻️  Application listening on port:${port}`)
+      );
     });
 
     //socket
@@ -39,10 +41,10 @@ async function main() {
       },
     });
     socketHelper.socket(io);
-  //@ts-ignore
+    //@ts-ignore
     global.io = io;
   } catch (error) {
-    console.error(error)
+    console.error(error);
     errorLogger.error(colors.red('🤢 Failed to connect Database'));
   }
 

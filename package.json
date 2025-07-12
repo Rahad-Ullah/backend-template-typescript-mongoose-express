@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/dev-server.ts",
     "start": "node dist/server.js",
     "build": "tsc",
     "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts",
