@@ -54,7 +54,7 @@ const fileUploadHandler = () => {
   });
 
   //file filter
-  const filterFilter = (req: Request, file: any, cb: FileFilterCallback) => {
+  const fileFilter = (req: Request, file: any, cb: FileFilterCallback) => {
     if (file.fieldname === 'image') {
       if (
         file.mimetype === 'image/jpeg' ||
@@ -94,7 +94,7 @@ const fileUploadHandler = () => {
 
   const upload = multer({
     storage: storage,
-    fileFilter: filterFilter,
+    fileFilter: fileFilter as any,
   }).fields([
     { name: 'image', maxCount: 3 },
     { name: 'media', maxCount: 3 },
