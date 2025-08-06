@@ -54,7 +54,11 @@ const fileUploadHandler = () => {
   });
 
   //file filter
-  const fileFilter = (req: Request, file: any, cb: FileFilterCallback) => {
+  const fileFilter = (
+    req: Request,
+    file: Express.Multer.File,
+    cb: FileFilterCallback
+  ) => {
     if (file.fieldname === 'image') {
       if (
         file.mimetype === 'image/jpeg' ||
