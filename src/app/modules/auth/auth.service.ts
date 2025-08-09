@@ -16,6 +16,7 @@ import cryptoToken from '../../../util/cryptoToken';
 import generateOTP from '../../../util/generateOTP';
 import { ResetToken } from '../resetToken/resetToken.model';
 import { User } from '../user/user.model';
+import { USER_STATUS } from '../user/user.constant';
 
 //login
 const loginUserFromDB = async (payload: ILoginData) => {
@@ -26,7 +27,7 @@ const loginUserFromDB = async (payload: ILoginData) => {
   }
 
   //check verified and status
-  if (!isExistUser.verified) {
+  if (!isExistUser.isVerified) {
     throw new ApiError(
       StatusCodes.BAD_REQUEST,
       'Please verify your account, then try to login again'
@@ -34,7 +35,7 @@ const loginUserFromDB = async (payload: ILoginData) => {
   }
 
   //check user status
-  if (isExistUser.status === 'delete') {
+  if (isExistUser.status !== USER_STATUS.ACTIVE) {
     throw new ApiError(
       StatusCodes.BAD_REQUEST,
       'You don’t have permission to access this content.It looks like your account has been deactivated.'
@@ -113,10 +114,13 @@ const verifyEmailToDB = async (payload: IVerifyEmail) => {
   let message;
   let data;
 
-  if (!isExistUser.verified) {
+  if (!isExistUser.isVerified) {
     await User.findOneAndUpdate(
       { _id: isExistUser._id },
-      { verified: true, authentication: { oneTimeCode: null, expireAt: null } }
+      {
+        isVerified: true,
+        authentication: { oneTimeCode: null, expireAt: null },
+      }
     );
     message = 'Email verify successfully';
   } else {

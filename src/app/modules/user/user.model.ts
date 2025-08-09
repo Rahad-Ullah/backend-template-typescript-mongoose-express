@@ -2,9 +2,9 @@ import bcrypt from 'bcrypt';
 import { StatusCodes } from 'http-status-codes';
 import { model, Schema } from 'mongoose';
 import config from '../../../config';
-import { USER_ROLES } from '../../../enums/user';
 import ApiError from '../../../errors/ApiError';
 import { IUser, UserModal } from './user.interface';
+import { USER_ROLES, USER_STATUS } from './user.constant';
 
 const userSchema = new Schema<IUser, UserModal>(
   {
@@ -35,10 +35,10 @@ const userSchema = new Schema<IUser, UserModal>(
     },
     status: {
       type: String,
-      enum: ['active', 'delete'],
-      default: 'active',
+      enum: Object.values(USER_STATUS),
+      default: USER_STATUS.ACTIVE,
     },
-    verified: {
+    isVerified: {
       type: Boolean,
       default: false,
     },

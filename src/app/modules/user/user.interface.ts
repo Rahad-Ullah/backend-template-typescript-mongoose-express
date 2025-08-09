@@ -1,5 +1,5 @@
 import { Model } from 'mongoose';
-import { USER_ROLES } from '../../../enums/user';
+import { USER_ROLES, USER_STATUS } from './user.constant';
 
 export type IUser = {
   name: string;
@@ -9,8 +9,8 @@ export type IUser = {
   password: string;
   location: string;
   image?: string;
-  status: 'active' | 'delete';
-  verified: boolean;
+  status: USER_STATUS;
+  isVerified: boolean;
   authentication?: {
     isResetPassword: boolean;
     oneTimeCode: number;

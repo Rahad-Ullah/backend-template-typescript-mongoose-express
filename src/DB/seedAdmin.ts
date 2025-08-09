@@ -1,6 +1,6 @@
+import { USER_ROLES } from '../app/modules/user/user.constant';
 import { User } from '../app/modules/user/user.model';
 import config from '../config';
-import { USER_ROLES } from '../enums/user';
 import { logger } from '../shared/logger';
 
 const payload = {
@@ -8,7 +8,7 @@ const payload = {
   email: config.super_admin.email,
   role: USER_ROLES.SUPER_ADMIN,
   password: config.super_admin.password,
-  verified: true,
+  isVerified: true,
 };
 
 export const seedSuperAdmin = async () => {

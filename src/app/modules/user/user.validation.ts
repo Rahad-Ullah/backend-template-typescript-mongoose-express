@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { USER_ROLES, USER_STATUS } from './user.constant';
 
 const createUserZodSchema = z.object({
   body: z.object({
@@ -18,6 +19,8 @@ const updateUserZodSchema = z.object({
   password: z.string().optional(),
   location: z.string().optional(),
   image: z.string().optional(),
+  role: z.nativeEnum(USER_ROLES).optional(),
+  status: z.nativeEnum(USER_STATUS).optional(),
 });
 
 export const UserValidation = {
