@@ -71,10 +71,12 @@ Ensure you have the following installed:
 
    ```env
    # Basic
+   SERVER_NAME=project_name
    NODE_ENV=development
    DATABASE_URL=mongodb://127.0.0.1:27017/project_name
-   IP_ADDRESS=192.0.0.0
+   IP_ADDRESS=10.10.7.7
    PORT=5000
+   PORT_DEV=5001
 
    # Bcrypt
    BCRYPT_SALT_ROUNDS=12
@@ -84,11 +86,15 @@ Ensure you have the following installed:
    JWT_EXPIRE_IN=1d
 
    # Email
-   EMAIL_FROM=email@gmail.com
-   EMAIL_USER=email@gmail.com
+   EMAIL_FROM=your_email@gmail.com
+   EMAIL_USER=your_email@gmail.com
    EMAIL_PASS=mkqcfjeqloothyax
    EMAIL_PORT=587
    EMAIL_HOST=smtp.gmail.com
+
+   # Admin credentials
+   SUPER_ADMIN_EMAIL=super.admin@gmail.com
+   SUPER_ADMIN_PASSWORD=P@ssword123
    ```
 
 4. **Run the project:**
