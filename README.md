@@ -47,8 +47,8 @@ Ensure you have the following installed:
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/your-repository.git
-   cd your-repository
+   git clone https://github.com/Rahad-Ullah/backend-template-typescript-mongoose-express.git
+   cd backend-template-typescript-mongoose-express
    ```
 
 2. **Install dependencies:**
@@ -62,7 +62,7 @@ Ensure you have the following installed:
    Using yarn:
 
    ```bash
-   yarn install
+   yarn
    ```
 
 3. **Create a `.env` file:**
@@ -108,7 +108,7 @@ Ensure you have the following installed:
    Using yarn:
 
    ```bash
-   yarn run dev
+   yarn dev
    ```
 
 ### Running the Tests
