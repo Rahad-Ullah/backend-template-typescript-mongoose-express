@@ -75,8 +75,8 @@ Ensure you have the following installed:
    NODE_ENV=development
    DATABASE_URL=mongodb://127.0.0.1:27017/project_name
    IP_ADDRESS=10.10.7.7
-   PORT=5000
-   PORT_DEV=5001
+   PORT=5000      // for production after build (`npm start`)
+   PORT_DEV=5001  // for development (`npm run dev`)
 
    # Bcrypt
    BCRYPT_SALT_ROUNDS=12
